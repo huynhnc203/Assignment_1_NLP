@@ -1,5 +1,5 @@
 from sklearn.base import BaseEstimator, TransformerMixin
-from vector_operator.vector_dis import VectorOperator
+from vector_operator.vector_dis import CosineSimilarity
 import numpy as np
 
 class EmbeddingVectorizer(BaseEstimator, TransformerMixin):
@@ -17,6 +17,21 @@ class EmbeddingVectorizer(BaseEstimator, TransformerMixin):
         ])
 
     def k_nearest(self, sentence, k=5, metric='cosine'):
-        "bai tap 2 :)) "
-        pass
+        sentence_vec = self.transform([sentence])[0]
+
+        if sentence_vec is None:
+            print(f"Embedding for sentence '{sentence}' not found")
+            return []
+        similarities = []
+
+        cosine_calculator = CosineSimilarity()
+
+        for key, value in self.embedding_dict.items():
+            sim_score = cosine_calculator.calculate(sentence_vec, value)
+            similarities.append((key, sim_score))
+
+
+        similarities.sort(key=lambda x: x[1], reverse=True)
+
+        return [word for word, score in similarities[:k]]
 

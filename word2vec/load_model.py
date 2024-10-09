@@ -9,4 +9,3 @@ def load_embeddings(file_path):
             vector = np.array(values[1:], dtype='float32')
             embedding_dict[word] = vector
     return embedding_dict
-
