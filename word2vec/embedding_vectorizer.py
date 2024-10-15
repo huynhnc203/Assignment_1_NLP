@@ -11,6 +11,7 @@ class EmbeddingVectorizer(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X):
+        print(X)
         return np.array([
             np.mean([self.embedding_dict.get(word, np.zeros(self.embedding_dim)) for word in sentence.split()], axis=0)
             for sentence in X
@@ -34,4 +35,5 @@ class EmbeddingVectorizer(BaseEstimator, TransformerMixin):
         similarities.sort(key=lambda x: x[1], reverse=True)
 
         return [word for word, score in similarities[:k]]
-
+    def get_vec_from_word(self, word):
+        return self.embedding_dict.get(word)
