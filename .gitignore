@@ -163,4 +163,4 @@ cython_debug/
 .env
 venv/
 word2vec/W2V_150.txt
-
+.venv/
