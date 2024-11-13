@@ -1,3 +1,12 @@
+Thành viên nhóm:
+
+
+| Thành viên           | MSV      |
+|----------------------|----------|
+| Nguyễn Công Huynh    | 22022565 |
+| Nguyễn Văn Trường    | 22022571 |
+| Phạm Khắc Tiệp       | 22022560 |
+
 PROGRAMMING ASSIGNMENT 1:  WORD SIMILARITY
 AND SEMANTIC RELATION CLASSIFICATION
 
